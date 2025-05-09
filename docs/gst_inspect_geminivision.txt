@@ -1,0 +1,94 @@
+Factory Details:
+  Rank                     none (0)
+  Long-name                Gemini Vision Processor
+  Klass                    Filter/Analyzer/Video
+  Description              Processes video frames with Google Gemini Vision API
+  Author                   Armaggheddon https://github.com/armaggheddon/gst-gemini-plugin
+
+Plugin Details:
+  Name                     geminivision
+  Description              Processes video frames and sends them to Gemini for description
+  Filename                 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstgeminivision.so
+  Version                  1.0.0
+  License                  MIT
+  Source module            geminivision
+  Binary package           gstgeminivision
+  Origin URL               https://github.com/armaggheddon/gst-gemini-plugin
+
+GObject
+ +----GInitiallyUnowned
+       +----GstObject
+             +----GstElement
+                   +----GstBaseTransform
+                         +----GstGeminiVision
+
+Pad Templates:
+  SINK template: 'sink'
+    Availability: Always
+    Capabilities:
+      video/x-raw
+                 format: { (string)RGB, (string)BGR, (string)RGBA, (string)BGRA }
+      image/jpeg
+  
+  SRC template: 'src'
+    Availability: Always
+    Capabilities:
+      video/x-raw
+                 format: { (string)RGB, (string)BGR, (string)RGBA, (string)BGRA }
+      image/jpeg
+
+Element has no clocking capabilities.
+Element has no URI handling capabilities.
+
+Pads:
+  SINK: 'sink'
+    Pad Template: 'sink'
+  SRC: 'src'
+    Pad Template: 'src'
+
+Element Properties:
+  analysis-interval   : The time interval in seconds between consecutive vision analysis operations. Controls how frequently the Gemini Vision API is called to analyze video frames.
+                        flags: readable, writable, changeable only in NULL or READY state
+                        Double. Range:             0.1 -            3600 Default:               5 
+  api-key             : Google Gemini API key
+                        flags: readable, writable, changeable only in NULL or READY state
+                        String. Default: null
+  max-output-tokens   : Maximum number of tokens to generate.
+                        flags: readable, writable, changeable only in NULL or READY state
+                        Integer. Range: 1 - 2147483647 Default: 800 
+  model-name          : Gemini model name
+                        flags: readable, writable, changeable only in NULL or READY state
+                        String. Default: "gemini-1.5-flash"
+  name                : The name of the object
+                        flags: readable, writable, 0x2000
+                        String. Default: "geminivision0"
+  output-metadata     : If TRUE, output description as GstMeta. If FALSE, emit a signal.
+                        flags: readable, writable, changeable only in NULL or READY state
+                        Boolean. Default: true
+  parent              : The parent of the object
+                        flags: readable, writable, 0x2000
+                        Object of type "GstObject"
+  prompt              : Text prompt to send to Gemini
+                        flags: readable, writable, changeable only in NULL or READY state
+                        String. Default: "Describe what you see in this image"
+  qos                 : Handle Quality-of-Service events
+                        flags: readable, writable
+                        Boolean. Default: false
+  stop-sequences      : A list of strings that will stop generation if generated.
+                        flags: readable, writable, changeable only in NULL or READY state
+                        Boxed pointer of type "GStrv"
+  temperature         : Controls randomness. Lower for less random. Range: 0.0 to 2.0.
+                        flags: readable, writable, changeable only in NULL or READY state
+                        Double. Range:               0 -               2 Default:               1 
+  top-k               : Number of highest probability tokens to consider. Range: 1 to 40 (example).
+                        flags: readable, writable, changeable only in NULL or READY state
+                        Integer. Range: 1 - 40 Default: 10 
+  top-p               : Cumulative probability cutoff for token selection. Range: 0.0 to 1.0.
+                        flags: readable, writable, changeable only in NULL or READY state
+                        Double. Range:               0 -               1 Default:             0.8 
+
+Element Signals:
+  "description-received" :  void user_function (GstElement* object,
+                                                gchararray arg0,
+                                                GstBuffer* arg1,
+                                                gpointer user_data);
