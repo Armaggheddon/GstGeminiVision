@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
     }
     
     const gchar *prompt_text = "Describe this scene in one short sentence. Focus on the main subject.";
-    const gchar *model = "gemini-1.5-flash-latest"; // Or another model name
+    const gchar *model = "gemini-2.0-flash"; // Or another model name
     gdouble analysis_interval_seconds = 5.0;
     gboolean output_as_metadata = FALSE; // Use signal for this example
 

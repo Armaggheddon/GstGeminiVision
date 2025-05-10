@@ -17,7 +17,7 @@ class GeminiVisionApp:
         # IMPORTANT: Replace with your actual API key or set GST_GEMINI_API_KEY environment variable
         self.api_key = os.environ.get("GST_GEMINI_API_KEY", "YOUR_API_KEY_HERE")
         self.prompt_text = "Describe this scene in one short sentence. Focus on the main subject."
-        self.model_name = "gemini-1.5-flash-latest" # Or another model name
+        self.model_name = "gemini-2.0-flash" # Or another model name
         self.analysis_interval_seconds = 5.0
         self.output_as_metadata = False # Use signal for this example
 

@@ -58,7 +58,7 @@ Element Properties:
                         Integer. Range: 1 - 2147483647 Default: 800 
   model-name          : Gemini model name
                         flags: readable, writable, changeable only in NULL or READY state
-                        String. Default: "gemini-1.5-flash"
+                        String. Default: "gemini-2.0-flash"
   name                : The name of the object
                         flags: readable, writable, 0x2000
                         String. Default: "geminivision0"

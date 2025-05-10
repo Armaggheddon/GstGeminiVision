@@ -1109,7 +1109,7 @@ gst_gemini_vision_class_init (GstGeminiVisionClass * klass) {
 			"model-name", 
 			"Model Name", 
 			"Gemini model name",
-			"gemini-1.5-flash", 
+			"gemini-2.0-flash", 
 			G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | GST_PARAM_MUTABLE_READY
 		));
 	g_object_class_install_property (
@@ -1222,7 +1222,7 @@ gst_gemini_vision_init (GstGeminiVision * self) {
 
 	self->api_key = NULL;
 	self->prompt = g_strdup("Describe what you see in this image");
-	self->model_name = g_strdup("gemini-1.5-flash"); // Updated default
+	self->model_name = g_strdup("gemini-2.0-flash"); // Updated default
 	self->analysis_interval_sec = 5.0;
 	self->output_metadata = TRUE;
 
