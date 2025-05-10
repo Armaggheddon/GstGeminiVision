@@ -39,6 +39,8 @@ Ever wondered what a GStreamer pipeline would say if it could talk? Now it can (
 
 ---
 
+![GstGeminiVision](docs/images/examplec2_screen.png)
+
 ## 🤨 What is GstGeminiVision?
 
 GstGeminiVision is a GStreamer plugin that acts as a bridge between your live video or image streams and the Google Gemini Vision API. It periodically captures frames, sends them to Gemini for analysis based on your prompt, and then makes the generated description available either as GStreamer metadata or through a GObject signal.
