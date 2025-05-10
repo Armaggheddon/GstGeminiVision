@@ -38,15 +38,14 @@ bus_callback(GstBus *bus, GstMessage *message, gpointer user_data) { // user_dat
             
             g_error_free(error);
             g_free(debug_info);
-            g_main_loop_quit(data->loop); // Use data->loop
+            g_main_loop_quit(data->loop);
             break;
         }
         case GST_MESSAGE_EOS:
             g_print("End of stream\n");
-            g_main_loop_quit(data->loop); // Use data->loop
+            g_main_loop_quit(data->loop);
             break;
         case GST_MESSAGE_STATE_CHANGED:
-            // Now this check is correct: comparing message source with the pipeline
             if (GST_MESSAGE_SRC(message) == GST_OBJECT(data->pipeline)) {
                 GstState old_state, new_state, pending_state;
                 gst_message_parse_state_changed(message, &old_state, &new_state, &pending_state);
