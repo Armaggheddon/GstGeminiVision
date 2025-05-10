@@ -37,9 +37,10 @@
 
 Ever wondered what a GStreamer pipeline would say if it could talk? Now it can (almost)! With **GstGeminiVision**, you can inject the power of Google's Gemini Vision API directly into your GStreamer media pipelines. Turn your video streams into insightful descriptions, automate content analysis, or just have some fun making your videos self-aware! 🤖🎬
 
+<video src="./docs/gemini_vision_demo.mp4" width="800" height="213" controls autoplay loop></video>
+
 ---
 
-![GstGeminiVision](docs/images/examplec2_screen.png)
 
 ## 🤨 What is GstGeminiVision?
 
@@ -310,7 +311,7 @@ Here's a summary of the key properties:
 
 - `api-key` (string): Your Google Gemini API Key (Mandatory!).
 - `prompt` (string): The text prompt to guide Gemini's analysis. Default: "Describe what you see in this image".
-- `model-name` (string): The Gemini model to use. Default: "gemini-1.5-flash-latest".
+- `model-name` (string): The Gemini model to use. Default: "gemini-2.0-flash-latest".
 - `analysis-interval` (double): Time in seconds between analyses. Default: 5.0.
 - `output-metadata` (boolean): If TRUE, output description as GstMeta. If FALSE (default), emit a signal.
 - **Generation Config**:
